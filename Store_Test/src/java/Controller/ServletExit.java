@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import DataTypes.Data;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,13 +31,7 @@ public class ServletExit extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Data data = Data.getInstance();
             
-            
-            String opc = request.getParameter("inp_hide");
-            if(Boolean.parseBoolean(opc)){
-                data.setActive(null);
-            }
             
             response.sendRedirect("StartPage.jsp");
         }

@@ -5,8 +5,7 @@
  */
 package Controller;
 
-import DataTypes.Data;
-import DataTypes.User;
+import Data_Structure.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javafx.util.Pair;
@@ -34,7 +33,7 @@ public class SevletLogin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Data data = Data.getInstance();
+            ControlUser data = ControlUser.getInstance();
             
             String name = request.getParameter("inp_name_login");
             String document = request.getParameter("inp_id_login");
@@ -43,16 +42,16 @@ public class SevletLogin extends HttpServlet {
             if(data.getUsers().containsKey(document)){
                 User user = data.getUsers().get(document);
                 if(name.equalsIgnoreCase(user.getName())){
-                    data.setActive(new Pair<>(Boolean.parseBoolean(active), document));
-                    response.sendRedirect("Simulator.jsp");
+                    data.setError(false);
+                    response.sendRedirect("Products.jsp");
                 }
                 else{
-                    data.setError_data(true);
+                    data.setError(true);
                     response.sendRedirect("StartPage.jsp");
                 }
             }
             else{
-                data.setError_data(true);
+                data.setError(true);
                 response.sendRedirect("StartPage.jsp");
             }
             

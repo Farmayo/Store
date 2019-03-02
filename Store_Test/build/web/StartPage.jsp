@@ -1,35 +1,28 @@
-
-<%@page import="DataTypes.Data"%>
+<%@page import="Controller.ControlUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-        <link rel="stylesheet" href="CSS/StartPage.css">
+        <link rel="stylesheet" href="CSS/StartPage.css?=1.0.1">
         <title>Didacticos CSJ - Start Page</title>
     </head>
     <body>
 
         <%
-            Data data1 = Data.getInstance();
-            if (data1.getActive() != null) {
-                if (data1.getActive().getKey()) {
-                    response.sendRedirect("Simulator.jsp");
-                }
-            }
-
+            ControlUser data1 = ControlUser.getInstance();
         %>
 
         <section>
-            <section class="ui card">
-                <a class="image" href="#">
+            <section class="ja_ui ja_card">
+                <a class="ja_image" href="#">
                     <section>
                         <h3>Didacticos CSJ - Store</h3>
                         <img src="Assets/didacticos_CSJ_Fixed_Resized.png">
                     </section>
                 </a>
-                <section class="content">
+                <section class="ja_content">
                     <a class="header" href="#">
                         Se encuentra usted registrado?
                     </a>
@@ -160,8 +153,34 @@
             </section>
         </section>
 
-        <%            Data data = Data.getInstance();
-            if (data.isError_data()) {
+        <footer>
+            <section class="start-mark">
+                <div class="body"><h3>Social Media</h3></div>
+                <div class="triangle"></div>
+            </section>
+            
+            <section class="end-mark">
+                <section>
+                    <img src="Assets/Logos/instagram.png" alt="Logo Instagram">
+                    Instagram
+                </section>
+            </section>
+            <section class="end-mark">
+                <section>
+                    <img src="Assets/Logos/facebook.png" alt="Logo Facebook">
+                    Facebook
+                </section>
+            </section>
+            <section class="end-mark">
+                <section>
+                    <img src="Assets/Logos/logo_twitter.png" alt="Logo Twitter">
+                    Twitter
+                </section>
+            </section>
+        </footer>
+
+        <% 
+            if (data1.isError()) {
         %>
         <script type="text/javascript">
             setTimeout(function () {
@@ -172,7 +191,7 @@
             Los datos ingresados son incorrectos
         </section>
         <%
-                data.setError_data(false);
+                data1.setError(false);
             }%>
 
         <script type="text/javascript" src="JS/StartPage.js"></script>

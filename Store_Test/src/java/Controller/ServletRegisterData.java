@@ -5,8 +5,7 @@
  */
 package Controller;
 
-import DataTypes.Data;
-import DataTypes.User;
+import Data_Structure.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,18 +32,18 @@ public class ServletRegisterData extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Data data = Data.getInstance();
+            ControlUser data = ControlUser.getInstance();
             
             User user = new User();
             user.setName(request.getParameter("inp_name"));
             user.setLastname(request.getParameter("inp_lastname"));
             user.setEmail(request.getParameter("inp_email"));
-            user.setCellphone_number(request.getParameter("inp_cellphone"));
-            user.setDocument(request.getParameter("inp_id"));
-            user.setAge(request.getParameter("inp_age"));
+            user.setCell_phone(request.getParameter("inp_cellphone"));
+            user.setId(request.getParameter("inp_id"));
+            user.setAge(Integer.parseInt(request.getParameter("inp_age")));
             
             
-            data.getUsers().put(user.getDocument(), user);
+            data.getUsers().put(user.getId(), user);
             
             response.sendRedirect("StartPage.jsp");
         }
