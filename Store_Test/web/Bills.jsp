@@ -15,95 +15,112 @@
             </section>
             <img src="Assets/didacticos_CSJ_Fixed.png" />
         </header>
+        <section id="infoDidacticos">
+            <h5>DIDACTICOS CSJ - NIT.123.456.789-0</h5>
+            <h5>DIDACTICOS CSJ - STORE</h5>
+            <h5>AUTHORIZATION RESOLUTION</h5>
+            <h5>DIAN NO. 12345678901234 OF</h5>
+            <h5>MARCH 2 OF 2019 OF NO.</h5>
+            <h5>123456789012 AL 210987654321</h5>
+        </section>        
         <h1 id="pageTitle">Billing</h1>
         <section id="globalSect">
             <section class="bills">
+                <h1 id="pageTitle">Shipment information</h1>
                 <form action="">
                     <section>
                         <h4>No. Bill</h4>
-                        <h4>Info</h4>
+                        <h4> <input placeholder="No. Bill" name="bill"  id="bill"/> </h4>
                     </section>
                     <section>
                         <h4>Code</h4>
-                        <h4>Info</h4>
+                        <h4> <input placeholder="Code" name="code" id="code"/> </h4>
                     </section>
                     <section>
                         <h4>Name</h4>
-                        <h4>Info</h4>
+                        <h4> <input placeholder="Name" name="name" id="name"/> </h4>
                     </section>
                     <section>
                         <h4>I.D</h4>
-                        <h4>Info</h4>
+                        <h4> <input placeholder="I.D" name="identification" id="identification"/> </h4>
                     </section>         
                     <section>
                         <h4>Address</h4>
-                        <h4>Info</h4>
+                        <h4> <input placeholder="Address" name="address" id="address"/> </h4>
                     </section>
                     <section>
                         <h4>Telephone</h4>
-                        <h4>Info</h4>
+                        <h4> <input placeholder="Telephone" name="telephone" id="telephone"/> </h4>
                     </section>
                 </form>
             </section>
             <%--Quitar espacios entre sections y alinear uno al lado del otro--%>
             <section class="bills">
                 <section>
-                    <table>
-                        <tr>
-                            <td colspan="2">DIDACTICOS CSJ - NIT.123.456.789-0</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">DIDACTICOS CSJ - STORE</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">AUTHORIZATION RESOLUTION</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">DIAN NO. 12345678901234 OF</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">MARCH 2 OF 2019 OF NO.</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">123456789012 AL 210987654321</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;">SALE INVOICE NO.</td>
-                            <td>Info</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;">Date</td>
-                            <td>Current_Date</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;">Products:</td>
-                            <td>Unite_Price</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;">Ejm LIBRO 1</td>
-                            <td>5.00</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;">Ejm LIBRO 1</td>
-                            <td>5.00</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;">Ejm LIBRO 1</td>
-                            <td>5.00</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;">Subtotal</td>
-                            <td>15.00</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: left;">Total_Product_Items</td>
-                            <td>19.00</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">WE ARE GREAT CONTRIBUTORS</td>
-                        </tr>
-                    </table>
-
+                    <form>
+                        <table>
+                            <tr>
+                                <td style="text-align: left;">SALE INVOICE NO.</td>
+                                <td>Info</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Date</td>
+                                <td>Current_Date</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Products:</td>
+                                <td>Unit Price</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 1</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 2</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 3</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 4</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 5</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 6</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 7</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 8</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Ejm LIBRO 9</td>
+                                <td>5.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Subtotal</td>
+                                <td>45.00</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">Total_Product_Items</td>
+                                <td>50.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">WE ARE GREAT CONTRIBUTORS</td>
+                            </tr>
+                        </table>
+                        <button id="btnPrint">Generate Bill</button>
+                    </form>
                 </section>
 
             </section>
