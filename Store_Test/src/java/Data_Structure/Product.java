@@ -2,6 +2,7 @@
 package Data_Structure;
 
 public class Product {
+    private String id;
     private String title_book;
     private String author_book;
     private String value;
@@ -28,6 +29,14 @@ public class Product {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
     

@@ -1,3 +1,8 @@
+<%@page import="java.util.GregorianCalendar"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="Data_Structure.Product"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Controller.ControlUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,6 +13,33 @@
         <title>Bill</title>
     </head>
     <body>
+        <% 
+            String codes[] = request.getParameter("inp_codes").split(";");
+            ControlUser data = ControlUser.getInstance();
+            ArrayList<Product> productos = new ArrayList<Product>();
+            
+            double value = 0.0;
+            double value_tax = 0.0;
+            double discount = 0.0;
+            Calendar date = new GregorianCalendar();
+            
+            for(String key: codes){
+                productos.add(data.getProducts().get(key));
+                value += Double.parseDouble(data.getProducts().get(key).getValue());
+            }
+            
+            
+            int day = date.get(Calendar.DAY_OF_WEEK);
+            if(day == Calendar.MONDAY){
+                discount = 0.02;
+            }
+            else if(day == Calendar.TUESDAY){
+                discount = 0.3;
+            }
+            
+            value_tax = value * 0.19;
+        %>
+        
         <header>
             <section>
                 <h1>Didacticos CSJ Store</h1>
@@ -77,44 +109,15 @@
                                 <td style="text-align: left;">Products:</td>
                                 <td>Unit Price</td>
                             </tr>
+                            
+                            <%for(int i = 0; i < productos.size(); i++){ %>
                             <tr>
-                                <td style="text-align: left;">Ejm LIBRO 1</td>
-                                <td>5.00</td>
+                                <td><%= productos.get(i).getTitle_book() %></td>
+                                <td><%= productos.get(i).getValue() %></td>
                             </tr>
+                            <%}%>
                             <tr>
-                                <td style="text-align: left;">Ejm LIBRO 2</td>
-                                <td>5.00</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: left;">Ejm LIBRO 3</td>
-                                <td>5.00</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: left;">Ejm LIBRO 4</td>
-                                <td>5.00</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: left;">Ejm LIBRO 5</td>
-                                <td>5.00</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: left;">Ejm LIBRO 6</td>
-                                <td>5.00</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: left;">Ejm LIBRO 7</td>
-                                <td>5.00</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: left;">Ejm LIBRO 8</td>
-                                <td>5.00</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: left;">Ejm LIBRO 9</td>
-                                <td>5.00</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: left;">Subtotal</td>
+                                <td style="text-align: left;"><%= value %></td>
                                 <td>45.00</td>
                             </tr>
                             <tr>
