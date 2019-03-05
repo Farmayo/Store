@@ -32,7 +32,7 @@
         <section class="suggested">
             <section>
                 <h1>Suggested Books</h1>
-                <i class="cart arrow down icon"><span id="suggested-items"><%= items%> items</span></i>
+                <i class="cart arrow down icon"><span id="suggested-items">0 Items</span></i>
                 <button>Pagar</button>
             </section>
             <form>
@@ -46,7 +46,7 @@
                         </section>
                         <section class="info--add">
                             <input type="hidden" value="5.00" name="value_book">
-                            <button>Add to car</button>
+                            <button type="button" onclick="addProduct(1)">Add to car</button>
                         </section>
                     </section>
                 </section>
@@ -60,7 +60,7 @@
                         </section>
                         <section class="info--add">
                             <input type="hidden" value="5.00" name="value_book">
-                            <button>Add to car</button>
+                            <button type="button" onclick="addProduct(2)">Add to car</button>
                         </section>
                     </section>
                 </section>
@@ -74,7 +74,7 @@
                         </section>
                         <section class="info--add">
                             <input type="hidden" value="5.00" name="value_book">
-                            <button>Add to car</button>
+                            <button type="button" onclick="addProduct(3)">Add to car</button>
                         </section>
                     </section>
                 </section>
@@ -88,7 +88,7 @@
                         </section>
                         <section class="info--add">
                             <input type="hidden" value="5.00" name="value_book">
-                            <button>Add to car</button>
+                            <button type="button" onclick="addProduct(4)">Add to car</button>
                         </section>
                     </section>
                 </section>
@@ -102,7 +102,7 @@
                         </section>
                         <section class="info--add">
                             <input type="hidden" value="5.00" name="value_book">
-                            <button>Add to car</button>
+                            <button type="button" onclick="addProduct(5)">Add to car</button>
                         </section>
                     </section>
                 </section>
@@ -116,7 +116,7 @@
                         </section>
                         <section class="info--add">
                             <input type="hidden" value="5.00" name="value_book">
-                            <button>Add to car</button>
+                            <button type="button" onclick="addProduct(6)">Add to car</button>
                         </section>
                     </section>
                 </section>
@@ -130,7 +130,7 @@
                         </section>
                         <section class="info--add">
                             <input type="hidden" value="5.00" name="value_book">
-                            <button>Add to car</button>
+                            <button type="button" onclick="addProduct(7)">Add to car</button>
                         </section>
                     </section>
                 </section>
@@ -144,10 +144,11 @@
                         </section>
                         <section class="info--add">
                             <input type="hidden" value="5.00" name="value_book">
-                            <button>Add to car</button>
+                            <button type="button" onclick="addProduct(8)">Add to car</button>
                         </section>
                     </section>
                 </section>
+                <input type="hidden" name="inp_codes" id="inp_codes" value="">
             </form>
 
         </section>
@@ -181,6 +182,34 @@
             <section>
                 <h2>Developed by Didacticos CSJ</h2>
             </section>
-        </section>        
+        </section>
+        <script>
+            var control_products = (function (){
+                var counter = 0;
+                function change(val){
+                    counter += val;
+                }
+                return{
+                    increment: function (){
+                        change(1);
+                    },
+                    getValue: function (){
+                        return counter;
+                    }
+                }
+            })();
+            
+            function addProduct(inp_codes){
+                var val = document.getElementById("inp_codes").value;
+                if(val === ''){
+                    document.getElementById("inp_codes").value = inp_codes; 
+                }
+                else{
+                    document.getElementById("inp_codes").value += ";" + inp_codes; 
+                }
+                control_products.increment();
+                document.getElementById("suggested-items").innerHTML = control_products.getValue() + " Items";
+            }
+        </script>
     </body>
 </html>
