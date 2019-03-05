@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-        <link type="text/css" rel="stylesheet" href="CSS/Bills.css?=1.0.2">
+        <link type="text/css" rel="stylesheet" href="CSS/Bills.css?=1.0.3">
         <title>Bill</title>
     </head>
     <body>
@@ -29,36 +29,42 @@
                 <h1 id="pageTitle">Shipment information</h1>
                 <form action="">
                     <section>
-                        <h4>No. Bill</h4>
-                        <h4> <input placeholder="No. Bill" name="bill"  id="bill"/> </h4>
-                    </section>
-                    <section>
-                        <h4>Code</h4>
-                        <h4> <input placeholder="Code" name="code" id="code"/> </h4>
-                    </section>
-                    <section>
                         <h4>Name</h4>
                         <h4> <input placeholder="Name" name="name" id="name"/> </h4>
-                    </section>
+                    </section>       
                     <section>
-                        <h4>I.D</h4>
-                        <h4> <input placeholder="I.D" name="identification" id="identification"/> </h4>
-                    </section>         
+                        <h4>Telephone</h4>
+                        <h4> <input placeholder="Telephone" name="telephone" id="telephone"/> </h4>
+                    </section>  
                     <section>
                         <h4>Address</h4>
                         <h4> <input placeholder="Address" name="address" id="address"/> </h4>
                     </section>
                     <section>
-                        <h4>Telephone</h4>
-                        <h4> <input placeholder="Telephone" name="telephone" id="telephone"/> </h4>
+                        <h4>Country</h4>
+                        <h4> <input placeholder="Country" name="country" id="country"/> </h4>
                     </section>
+                    <section>
+                        <h4>City</h4>
+                        <h4> <input placeholder="City" name="city" id="city"/> </h4>
+                    </section>
+                    <section>
+                        <h4>State</h4>
+                        <h4> <input placeholder="State/Province/Department" name="state" id="state"/> </h4>
+                    </section>
+                    <section>
+                        <h4>Postal Code</h4>
+                        <h4> <input placeholder="Postal Code" name="postal" id="postal"/> </h4>
+                    </section>
+
+                    <button id="btnPrint">Generate Bill</button>
                 </form>
             </section>
             <%--Quitar espacios entre sections y alinear uno al lado del otro--%>
             <section class="bills">
                 <section>
-                    <form>
-                        <table>
+                    <form id="bill_form">
+                        <table id="bill_bg">
                             <tr>
                                 <td style="text-align: left;">SALE INVOICE NO.</td>
                                 <td>Info</td>
@@ -119,7 +125,6 @@
                                 <td colspan="2">WE ARE GREAT CONTRIBUTORS</td>
                             </tr>
                         </table>
-                        <button id="btnPrint">Generate Bill</button>
                     </form>
                 </section>
 
@@ -135,25 +140,25 @@
                 <section class="end-mark">
                     <section>
                         <img src="Assets/Logos/instagram.png" alt="Logo Instagram">
-                        Instagram
+                        <a href="https://www.instagram.com/didacticoscsj/">Instagram</a>
                     </section>
                 </section>
                 <section class="end-mark">
                     <section>
                         <img src="Assets/Logos/facebook.png" alt="Logo Facebook" >
-                        Facebook
+                        <a href="https://www.facebook.com/DidacticosCSJ/">Facebook</a>
                     </section>
                 </section>
                 <section class="end-mark">
                     <section>
                         <img src="Assets/Logos/logo_twitter.png" alt="Logo Twitter">
-                        Twitter
+                        <a href="https://twitter.com/DidacticosCSJ">Twitter</a>
                     </section>
                 </section>
             </footer>
             <section>
                 <h2>Developed by Didacticos CSJ</h2>
             </section>
-
+        </section>
     </body>
 </html>

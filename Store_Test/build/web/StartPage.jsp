@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-        <link rel="stylesheet" href="CSS/StartPage.css?=1.0.1">
+        <link rel="stylesheet" href="CSS/StartPage.css?=1.0.2">
         <title>Didacticos CSJ - Start Page</title>
     </head>
     <body>
@@ -152,13 +152,12 @@
                 </section>
             </section>
         </section>
-
         <footer>
             <section class="start-mark">
                 <div class="body"><h3>Social Media</h3></div>
                 <div class="triangle"></div>
             </section>
-            
+
             <section class="end-mark">
                 <section>
                     <img src="Assets/Logos/instagram.png" alt="Logo Instagram">
@@ -179,7 +178,8 @@
             </section>
         </footer>
 
-        <% 
+
+        <%
             if (data1.isError()) {
         %>
         <script type="text/javascript">

@@ -14,13 +14,13 @@
             String doc = request.getParameter("inp_id_login");
             ControlUser control = ControlUser.getInstance();
             int items = 0;
-            if(control.getUsers().containsKey(doc)){
-                if(control.getUsers().get(doc).getProducts() != null){
+            if (control.getUsers().containsKey(doc)) {
+                if (control.getUsers().get(doc).getProducts() != null) {
                     items = control.getUsers().get(doc).getProducts().size();
                 }
             }
         %>
-        
+
         <header>
             <section>
                 <h1>Welcome to Didacticos CSJ Store</h1>
@@ -28,7 +28,7 @@
             </section>
             <img src="Assets/didacticos_CSJ_Fixed.png" />
         </header>
-        
+
         <section class="suggested">
             <section>
                 <h1>Suggested Books</h1>
@@ -151,7 +151,7 @@
             </form>
 
         </section>
-        
+
         <section class="footer">
             <footer>
                 <section class="start-mark">
@@ -162,19 +162,19 @@
                 <section class="end-mark">
                     <section>
                         <img src="Assets/Logos/instagram.png" alt="Logo Instagram">
-                        Instagram
+                        <a href="https://www.instagram.com/didacticoscsj/">Instagram</a>
                     </section>
                 </section>
                 <section class="end-mark">
                     <section>
-                        <img src="Assets/Logos/facebook.png" alt="Logo Facebook">
-                        Facebook
+                        <img src="Assets/Logos/facebook.png" alt="Logo Facebook" >
+                        <a href="https://www.facebook.com/DidacticosCSJ/">Facebook</a>
                     </section>
                 </section>
                 <section class="end-mark">
                     <section>
                         <img src="Assets/Logos/logo_twitter.png" alt="Logo Twitter">
-                        Twitter
+                        <a href="https://twitter.com/DidacticosCSJ">Twitter</a>
                     </section>
                 </section>
             </footer>
