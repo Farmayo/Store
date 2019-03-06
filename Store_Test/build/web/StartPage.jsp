@@ -152,33 +152,6 @@
                 </section>
             </section>
         </section>
-
-        <footer>
-            <section class="start-mark">
-                <div class="body"><h3>Social Media</h3></div>
-                <div class="triangle"></div>
-            </section>
-            
-            <section class="end-mark">
-                <section>
-                    <img src="Assets/Logos/instagram.png" alt="Logo Instagram">
-                    Instagram
-                </section>
-            </section>
-            <section class="end-mark">
-                <section>
-                    <img src="Assets/Logos/facebook.png" alt="Logo Facebook">
-                    Facebook
-                </section>
-            </section>
-            <section class="end-mark">
-                <section>
-                    <img src="Assets/Logos/logo_twitter.png" alt="Logo Twitter">
-                    Twitter
-                </section>
-            </section>
-        </footer>
-
         <% 
             if (data1.isError()) {
         %>

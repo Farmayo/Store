@@ -3,6 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.GregorianCalendar;
+import java.util.Calendar;
+import Data_Structure.Product;
+import java.util.ArrayList;
+import Controller.ControlUser;
 
 public final class Bills_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -42,6 +47,11 @@ public final class Bills_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -51,6 +61,62 @@ public final class Bills_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Bill</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
+      out.write("        ");
+ 
+            String in = request.getParameter("inp_codes");
+            String codes[] = {};
+
+            try{
+               codes = in.split(";");
+            }catch(Exception e){
+
+            }
+            
+            ControlUser data = ControlUser.getInstance();
+            ArrayList<Product> productos = new ArrayList<Product>();
+            
+            double value = 0.0;
+            double value_tax = 0.0;
+            double discount = 0.0;
+            Calendar date = new GregorianCalendar();
+            
+            for(String key: codes){
+                productos.add(data.getProducts().get(key));
+                value += Double.parseDouble(data.getProducts().get(key).getValue());
+            }
+            
+            
+            int day = date.get(Calendar.DAY_OF_WEEK);
+            if(day == Calendar.MONDAY){
+                discount = 0.02;
+            }
+            else if(day == Calendar.TUESDAY){
+                discount = 0.03;
+            }
+            else if(day == Calendar.WEDNESDAY){
+                discount = 0.04;
+            }
+            else if(day == Calendar.THURSDAY){
+                discount = 0.05;
+            }
+            else if(day == Calendar.FRIDAY){
+                discount = 0.08;
+            }
+            else if(day == Calendar.SATURDAY){
+                discount = 0.9;
+            }
+            else{
+                discount = 0.1;
+            }
+            
+            
+            
+            value_tax = value * 0.19;
+            double total = value + (value * discount) + value_tax;
+            String aux_out = String.format("%.2f", total);
+        
+      out.write("\r\n");
+      out.write("        \r\n");
       out.write("        <header>\r\n");
       out.write("            <section>\r\n");
       out.write("                <h1>Didacticos CSJ Store</h1>\r\n");
@@ -107,7 +173,7 @@ public final class Bills_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("            <section class=\"bills\">\r\n");
       out.write("                <section>\r\n");
-      out.write("                    <form>\r\n");
+      out.write("                    <form id=\"bill_form\">\r\n");
       out.write("                        <table id=\"bill_bg\">\r\n");
       out.write("                            <tr>\r\n");
       out.write("                                <td style=\"text-align: left;\">SALE INVOICE NO.</td>\r\n");
@@ -121,49 +187,32 @@ public final class Bills_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <td style=\"text-align: left;\">Products:</td>\r\n");
       out.write("                                <td>Unit Price</td>\r\n");
       out.write("                            </tr>\r\n");
+      out.write("                            \r\n");
+      out.write("                            ");
+for(int i = 0; i < productos.size(); i++){ 
+      out.write("\r\n");
       out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 1</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
+      out.write("                                <td>");
+      out.print( productos.get(i).getTitle_book() );
+      out.write("</td>\r\n");
+      out.write("                                <td>");
+      out.print( productos.get(i).getValue() );
+      out.write("</td>\r\n");
+      out.write("                            </tr>\r\n");
+      out.write("                            ");
+}
+      out.write("\r\n");
+      out.write("                            <tr>\r\n");
+      out.write("                                <td>Subtotal</td>\r\n");
+      out.write("                                <td>");
+      out.print( value );
+      out.write("</td>\r\n");
       out.write("                            </tr>\r\n");
       out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 2</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 3</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 4</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 5</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 6</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 7</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 8</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Ejm LIBRO 9</td>\r\n");
-      out.write("                                <td>5.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Subtotal</td>\r\n");
-      out.write("                                <td>45.00</td>\r\n");
-      out.write("                            </tr>\r\n");
-      out.write("                            <tr>\r\n");
-      out.write("                                <td style=\"text-align: left;\">Total_Product_Items</td>\r\n");
-      out.write("                                <td>50.00</td>\r\n");
+      out.write("                                <td>Total</td>\r\n");
+      out.write("                                <td>");
+      out.print( total );
+      out.write("</td>\r\n");
       out.write("                            </tr>\r\n");
       out.write("                            <tr>\r\n");
       out.write("                                <td colspan=\"2\">WE ARE GREAT CONTRIBUTORS</td>\r\n");

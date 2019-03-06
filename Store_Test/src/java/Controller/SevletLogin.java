@@ -43,6 +43,7 @@ public class SevletLogin extends HttpServlet {
                 User user = data.getUsers().get(document);
                 if(name.equalsIgnoreCase(user.getName())){
                     data.setError(false);
+                    data.setCurrentUser(user);
                     response.sendRedirect("Products.jsp");
                 }
                 else{

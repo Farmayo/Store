@@ -14,7 +14,15 @@
     </head>
     <body>
         <% 
-            String codes[] = request.getParameter("inp_codes").split(";");
+            String in = request.getParameter("inp_codes");
+            String codes[] = {};
+
+            try{
+               codes = in.split(";");
+            }catch(Exception e){
+
+            }
+            
             ControlUser data = ControlUser.getInstance();
             ArrayList<Product> productos = new ArrayList<Product>();
             
@@ -34,10 +42,29 @@
                 discount = 0.02;
             }
             else if(day == Calendar.TUESDAY){
-                discount = 0.3;
+                discount = 0.03;
+            }
+            else if(day == Calendar.WEDNESDAY){
+                discount = 0.04;
+            }
+            else if(day == Calendar.THURSDAY){
+                discount = 0.05;
+            }
+            else if(day == Calendar.FRIDAY){
+                discount = 0.08;
+            }
+            else if(day == Calendar.SATURDAY){
+                discount = 0.09;
+            }
+            else{
+                discount = 0.1;
             }
             
+            
+            
             value_tax = value * 0.19;
+            double total = value + (value * discount) + value_tax;
+            String aux_out = String.format("%.2f", total);
         %>
         
         <header>
@@ -61,35 +88,17 @@
                 <h1 id="pageTitle">Shipment information</h1>
                 <form action="">
                     <section>
-                        <h4>Name</h4>
-                        <h4> <input placeholder="Name" name="name" id="name"/> </h4>
+                        <h4>Name:</h4><span><%= data.getCurrentUser().getName() %></span>
                     </section>       
                     <section>
-                        <h4>Telephone</h4>
-                        <h4> <input placeholder="Telephone" name="telephone" id="telephone"/> </h4>
+                        <h4>Lastname:</h4> <span><%= data.getCurrentUser().getLastname()%></span>
                     </section>  
                     <section>
-                        <h4>Address</h4>
-                        <h4> <input placeholder="Address" name="address" id="address"/> </h4>
+                        <h4>Email:</h4><span><%= data.getCurrentUser().getCell_phone() %></span>
                     </section>
                     <section>
-                        <h4>Country</h4>
-                        <h4> <input placeholder="Country" name="country" id="country"/> </h4>
+                        <h4>Discount:</h4><span><%= (discount * 100) %></span>
                     </section>
-                    <section>
-                        <h4>City</h4>
-                        <h4> <input placeholder="City" name="city" id="city"/> </h4>
-                    </section>
-                    <section>
-                        <h4>State</h4>
-                        <h4> <input placeholder="State/Province/Department" name="state" id="state"/> </h4>
-                    </section>
-                    <section>
-                        <h4>Postal Code</h4>
-                        <h4> <input placeholder="Postal Code" name="postal" id="postal"/> </h4>
-                    </section>
-
-                    <button id="btnPrint">Generate Bill</button>
                 </form>
             </section>
             <%--Quitar espacios entre sections y alinear uno al lado del otro--%>
@@ -99,11 +108,13 @@
                         <table id="bill_bg">
                             <tr>
                                 <td style="text-align: left;">SALE INVOICE NO.</td>
-                                <td>Info</td>
+                                <td><%= Math.random() + 1 %></td>
                             </tr>
                             <tr>
                                 <td style="text-align: left;">Date</td>
-                                <td>Current_Date</td>
+                                <td><%= date.get(Calendar.DAY_OF_MONTH) %> /
+                                    <%= date.get(Calendar.MONTH) + 1%> /
+                                    <%= date.get(Calendar.YEAR) %></td>
                             </tr>
                             <tr>
                                 <td style="text-align: left;">Products:</td>
@@ -117,12 +128,12 @@
                             </tr>
                             <%}%>
                             <tr>
-                                <td style="text-align: left;"><%= value %></td>
-                                <td>45.00</td>
+                                <td>Subtotal</td>
+                                <td><%= value %></td>
                             </tr>
                             <tr>
-                                <td style="text-align: left;">Total_Product_Items</td>
-                                <td>50.00</td>
+                                <td>Total</td>
+                                <td><%= total %></td>
                             </tr>
                             <tr>
                                 <td colspan="2">WE ARE GREAT CONTRIBUTORS</td>

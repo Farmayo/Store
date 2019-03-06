@@ -11,6 +11,7 @@ public class ControlUser {
     
     private HashMap<String, User> users;
     private HashMap<String, Product> products;
+    private User currentUser;
     private boolean error;
     
     public static ControlUser getInstance(){
@@ -24,6 +25,7 @@ public class ControlUser {
         this.error = false;
         users = new HashMap<>();
         products = new HashMap<>();
+        currentUser = new User();
         createProducts();
     }
 
@@ -50,6 +52,14 @@ public class ControlUser {
     public void setProducts(HashMap<String, Product> products) {
         this.products = products;
     }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
     
     
     
@@ -61,45 +71,47 @@ public class ControlUser {
         product.setValue("5");
         products.put(product.getId(), product);
         product = new Product();
-        product.setId("1");
+        product.setId("2");
         product.setTitle_book("El Nobel");
         product.setAuthor_book("Vicky Davila");
         product.setValue("5");
         products.put(product.getId(), product);
         product = new Product();
-        product.setId("1");
+        product.setId("3");
         product.setTitle_book("Hoy es Siempre Todavia");
         product.setAuthor_book("Alejandro Gaviria");
         product.setValue("5");
         products.put(product.getId(), product);
         product = new Product();
-        product.setId("1");
+        product.setId("4");
         product.setTitle_book("Ideas Millonarias");
         product.setAuthor_book("Juan Diego Gomez");
         product.setValue("5");
         products.put(product.getId(), product);
         product = new Product();
+        product.setId("5");
         product.setTitle_book("Las palabras más bellas");
         product.setAuthor_book("Juan Gosain");
         product.setValue("5");
         products.put(product.getId(), product);
         product = new Product();
-        product.setId("1");
+        product.setId("6");
         product.setTitle_book("Los divinos");
         product.setAuthor_book("Laura Restrepo");
         product.setValue("5");
         products.put(product.getId(), product);
         product = new Product();
-        product.setId("1");
+        product.setId("7");
         product.setTitle_book("Nińas rebeldes 2");
         product.setAuthor_book("Elena Favilli");
         product.setValue("5");
         products.put(product.getId(), product);
         product = new Product();
-        product.setId("1");
+        product.setId("8");
         product.setTitle_book("Todos somos poderosos");
         product.setAuthor_book("Luisa Fernanda W");
         product.setValue("5");
+        products.put(product.getId(), product);
     }
     
 }

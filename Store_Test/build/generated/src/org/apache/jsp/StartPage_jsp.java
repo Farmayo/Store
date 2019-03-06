@@ -200,33 +200,6 @@ public final class StartPage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </section>\r\n");
       out.write("            </section>\r\n");
       out.write("        </section>\r\n");
-      out.write("\r\n");
-      out.write("        <footer>\r\n");
-      out.write("            <section class=\"start-mark\">\r\n");
-      out.write("                <div class=\"body\"><h3>Social Media</h3></div>\r\n");
-      out.write("                <div class=\"triangle\"></div>\r\n");
-      out.write("            </section>\r\n");
-      out.write("            \r\n");
-      out.write("            <section class=\"end-mark\">\r\n");
-      out.write("                <section>\r\n");
-      out.write("                    <img src=\"Assets/Logos/instagram.png\" alt=\"Logo Instagram\">\r\n");
-      out.write("                    Instagram\r\n");
-      out.write("                </section>\r\n");
-      out.write("            </section>\r\n");
-      out.write("            <section class=\"end-mark\">\r\n");
-      out.write("                <section>\r\n");
-      out.write("                    <img src=\"Assets/Logos/facebook.png\" alt=\"Logo Facebook\">\r\n");
-      out.write("                    Facebook\r\n");
-      out.write("                </section>\r\n");
-      out.write("            </section>\r\n");
-      out.write("            <section class=\"end-mark\">\r\n");
-      out.write("                <section>\r\n");
-      out.write("                    <img src=\"Assets/Logos/logo_twitter.png\" alt=\"Logo Twitter\">\r\n");
-      out.write("                    Twitter\r\n");
-      out.write("                </section>\r\n");
-      out.write("            </section>\r\n");
-      out.write("        </footer>\r\n");
-      out.write("\r\n");
       out.write("        ");
  
             if (data1.isError()) {

@@ -6,7 +6,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-        <link type="text/css" rel="stylesheet" href="CSS/Products.css">
+        <link type="text/css" rel="stylesheet" href="CSS/Products.css?
+              =1.01">
         <title>Products</title>
     </head>
     <body>
@@ -33,9 +34,12 @@
             <section>
                 <h1>Suggested Books</h1>
                 <i class="cart arrow down icon"><span id="suggested-items">0 Items</span></i>
-                <button>Pagar</button>
+                <form action="Bills.jsp" id="form-bill">
+                    <input type="hidden" name="inp_codes" id="inp_codes" value="">
+                    <button id="btn-send">Pagar</button>
+                </form>
             </section>
-            <form>
+            <form id="form-aux">
                 <section>
                     <img src="Assets/Products/Suggested/diario_del_fin_del_mundo-Mario_Mendoza.PNG"/>
                     <h2>Diario del fin del Mundo</h2>
@@ -148,7 +152,6 @@
                         </section>
                     </section>
                 </section>
-                <input type="hidden" name="inp_codes" id="inp_codes" value="">
             </form>
 
         </section>
@@ -210,6 +213,10 @@
                 control_products.increment();
                 document.getElementById("suggested-items").innerHTML = control_products.getValue() + " Items";
             }
+            
+            document.getElementById("btn-send").addEventListener("click", function (){
+                document.getElementById("form-bill").submit();
+            });
         </script>
     </body>
 </html>
